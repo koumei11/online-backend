@@ -48,3 +48,57 @@ These are the notes from a meeting with the frontend developer that describe wha
 - quantity of each product in the order
 - user_id
 - status of order (active or complete)
+
+## Table Schema
+
+----------------------------------------  Users Table  ----------------------------------------------------
+     Column      |          Type          | Collation | Nullable |              Default              
+-----------------+------------------------+-----------+----------+-----------------------------------
+ id              | integer                |           | not null | nextval('users_id_seq'::regclass)
+ firstname       | character varying(100) |           |          | 
+ lastname        | character varying(100) |           |          | 
+ password_digest | character varying      |           |          | 
+ email           | character varying      |           |          | 
+Indexes:
+    "users_pkey" PRIMARY KEY, btree (id)
+-----------------------------------------------------------------------------------------------------------
+
+
+
+----------------------------------------  Products Table  -------------------------------------------------
+  Column  |       Type        | Collation | Nullable |               Default                
+----------+-------------------+-----------+----------+--------------------------------------
+ id       | integer           |           | not null | nextval('products_id_seq'::regclass)
+ name     | character varying |           |          | 
+ price    | integer           |           |          | 
+ category | character varying |           |          | 
+Indexes:
+    "products_pkey" PRIMARY KEY, btree (id)
+-----------------------------------------------------------------------------------------------------------
+
+
+
+----------------------------------------  Orders Table  ---------------------------------------------------
+ Column  |  Type   | Collation | Nullable |              Default               
+---------+---------+-----------+----------+------------------------------------
+ id      | integer |           | not null | nextval('orders_id_seq'::regclass)
+ user_id | integer |           |          | 
+ status  | integer |           |          | 
+Indexes:
+    "orders_pkey" PRIMARY KEY, btree (id)
+-----------------------------------------------------------------------------------------------------------
+
+
+
+----------------------------------------  Products_Orders Table  ------------------------------------------
+   Column   |  Type   | Collation | Nullable |                   Default                   
+------------+---------+-----------+----------+---------------------------------------------
+ id         | integer |           | not null | nextval('products_orders_id_seq'::regclass)
+ quantity   | integer |           |          | 
+ product_id | integer |           |          | 
+ order_id   | integer |           |          | 
+Indexes:
+    "products_orders_pkey" PRIMARY KEY, btree (id)
+-----------------------------------------------------------------------------------------------------------
+
+Products_Orders Table can have the same order_id to an order. So there is the one to many relationship here.

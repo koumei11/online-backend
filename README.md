@@ -1,8 +1,22 @@
 # Online Store API
 
 This is an online store API. You can use this API to manipulate user, product and order.
-To run this app, run `npm run start` command in your terminal.
-To test this app, run `npm run test` to test all endpoints and models.
+
+## Get Started
+
+1. Run `npm install` to install all packages required by this project.
+2. Run `npm run build` to build the project.
+3. Run `npm run start` to start the project.
+
+## Set Up Database
+
+Run `db-migrate up` to set up the database.
+This commands creates online_store_dev database and neccessary tables of this project.
+
+## Port
+
+Server Port - 3000
+Database Port - 5432
 
 ## Endpoints
 
