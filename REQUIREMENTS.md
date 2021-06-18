@@ -51,54 +51,51 @@ These are the notes from a meeting with the frontend developer that describe wha
 
 ## Table Schema
 
-----------------------------------------  Users Table  ----------------------------------------------------
-     Column      |          Type          | Collation | Nullable |              Default              
------------------+------------------------+-----------+----------+-----------------------------------
- id              | integer                |           | not null | nextval('users_id_seq'::regclass)
- firstname       | character varying(100) |           |          | 
- lastname        | character varying(100) |           |          | 
- password_digest | character varying      |           |          | 
- email           | character varying      |           |          | 
-Indexes:
-    "users_pkey" PRIMARY KEY, btree (id)
------------------------------------------------------------------------------------------------------------
+### Users Table
 
+Column id
 
+| Column          | Type                   | Collation | Nullable | Default                           |
+| --------------- | ---------------------- | --------- | -------- | --------------------------------- |
+| id              | integer                |           | not null | nextval('users_id_seq'::regclass) |
+| firstname       | character varying(100) |           |          |                                   |
+| lastname        | character varying(100) |           |          |                                   |
+| password_digest | character varying      |           |          |                                   |
+| email           | character varying      |           |          |                                   |
 
-----------------------------------------  Products Table  -------------------------------------------------
-  Column  |       Type        | Collation | Nullable |               Default                
+---------------------------------------- Products Table -------------------------------------------------
+Column | Type | Collation | Nullable | Default  
 ----------+-------------------+-----------+----------+--------------------------------------
- id       | integer           |           | not null | nextval('products_id_seq'::regclass)
- name     | character varying |           |          | 
- price    | integer           |           |          | 
- category | character varying |           |          | 
+id | integer | | not null | nextval('products_id_seq'::regclass)
+name | character varying | | |
+price | integer | | |
+category | character varying | | |
 Indexes:
-    "products_pkey" PRIMARY KEY, btree (id)
------------------------------------------------------------------------------------------------------------
+"products_pkey" PRIMARY KEY, btree (id)
 
+---
 
-
-----------------------------------------  Orders Table  ---------------------------------------------------
- Column  |  Type   | Collation | Nullable |              Default               
+---------------------------------------- Orders Table ---------------------------------------------------
+Column | Type | Collation | Nullable | Default  
 ---------+---------+-----------+----------+------------------------------------
- id      | integer |           | not null | nextval('orders_id_seq'::regclass)
- user_id | integer |           |          | 
- status  | integer |           |          | 
+id | integer | | not null | nextval('orders_id_seq'::regclass)
+user_id | integer | | |
+status | integer | | |
 Indexes:
-    "orders_pkey" PRIMARY KEY, btree (id)
------------------------------------------------------------------------------------------------------------
+"orders_pkey" PRIMARY KEY, btree (id)
 
+---
 
-
-----------------------------------------  Products_Orders Table  ------------------------------------------
-   Column   |  Type   | Collation | Nullable |                   Default                   
+---------------------------------------- Products_Orders Table ------------------------------------------
+Column | Type | Collation | Nullable | Default  
 ------------+---------+-----------+----------+---------------------------------------------
- id         | integer |           | not null | nextval('products_orders_id_seq'::regclass)
- quantity   | integer |           |          | 
- product_id | integer |           |          | 
- order_id   | integer |           |          | 
+id | integer | | not null | nextval('products_orders_id_seq'::regclass)
+quantity | integer | | |
+product_id | integer | | |
+order_id | integer | | |
 Indexes:
-    "products_orders_pkey" PRIMARY KEY, btree (id)
------------------------------------------------------------------------------------------------------------
+"products_orders_pkey" PRIMARY KEY, btree (id)
+
+---
 
 Products_Orders Table can have the same order_id to an order. So there is the one to many relationship here.
