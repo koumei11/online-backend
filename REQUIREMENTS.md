@@ -53,49 +53,38 @@ These are the notes from a meeting with the frontend developer that describe wha
 
 ### Users Table
 
-Column id
+| Column           | Type                   | Collation | Nullable |
+| ---------------- | ---------------------- | --------- | -------- |
+| id (PRIMARY KEY) | integer                |           | not null |
+| firstname        | character varying(100) |           |          |
+| lastname         | character varying(100) |           |          |
+| password_digest  | character varying      |           |          |
+| email            | character varying      |           |          |
 
-| Column          | Type                   | Collation | Nullable | Default                           |
-| --------------- | ---------------------- | --------- | -------- | --------------------------------- |
-| id              | integer                |           | not null | nextval('users_id_seq'::regclass) |
-| firstname       | character varying(100) |           |          |                                   |
-| lastname        | character varying(100) |           |          |                                   |
-| password_digest | character varying      |           |          |                                   |
-| email           | character varying      |           |          |                                   |
+### Products Table
 
----------------------------------------- Products Table -------------------------------------------------
-Column | Type | Collation | Nullable | Default  
-----------+-------------------+-----------+----------+--------------------------------------
-id | integer | | not null | nextval('products_id_seq'::regclass)
-name | character varying | | |
-price | integer | | |
-category | character varying | | |
-Indexes:
-"products_pkey" PRIMARY KEY, btree (id)
+| Column           | Type              | Collation | Nullable |
+| ---------------- | ----------------- | --------- | -------- |
+| id (PRIMARY KEY) | integer           |           | not null |
+| name             | character varying |           |          |
+| price            | integer           |           |          |
+| category         | character varying |           |          |
 
----
+### Orders Table
 
----------------------------------------- Orders Table ---------------------------------------------------
-Column | Type | Collation | Nullable | Default  
----------+---------+-----------+----------+------------------------------------
-id | integer | | not null | nextval('orders_id_seq'::regclass)
-user_id | integer | | |
-status | integer | | |
-Indexes:
-"orders_pkey" PRIMARY KEY, btree (id)
+| Column           | Type    | Collation | Nullable |
+| ---------------- | ------- | --------- | -------- |
+| id (PRIMARY KEY) | integer |           | not null |
+| user_id          | integer |           |          |
+| status           | integer |           |          |
 
----
+### Products_Orders Table
 
----------------------------------------- Products_Orders Table ------------------------------------------
-Column | Type | Collation | Nullable | Default  
-------------+---------+-----------+----------+---------------------------------------------
-id | integer | | not null | nextval('products_orders_id_seq'::regclass)
-quantity | integer | | |
-product_id | integer | | |
-order_id | integer | | |
-Indexes:
-"products_orders_pkey" PRIMARY KEY, btree (id)
-
----
+| Column           | Type    | Collation | Nullable |
+| ---------------- | ------- | --------- | -------- |
+| id (PRIMARY KEY) | integer |           | not null |
+| quantity         | integer |           |          |
+| product_id       | integer |           |          |
+| order_id         | integer |           |          |
 
 Products_Orders Table can have the same order_id to an order. So there is the one to many relationship here.
