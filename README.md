@@ -7,19 +7,18 @@ This is an online store API. You can use this API to manipulate user, product an
 1. Install PostgreSQL to your machine.
 2. Get into the psql terminal using `psql postgres` command.
 3. After you get into the terminal, create a user below.
-`CREATE USER full_stack_user WITH PASSWORD 'password123';`
+   `CREATE USER full_stack_user WITH PASSWORD 'password123';`
 4. Create a database.
-`CREATE DATABASE online_store_dev;`
+   `CREATE DATABASE online_store_dev;`
 5. Assign permission to the newly created user, full_stack_user.
-`GRANT ALL PRIVILEGES ON DATABASE online_store_dev TO full_stack_user;`;
-
-Run `db-migrate up`.
+   `GRANT ALL PRIVILEGES ON DATABASE online_store_dev TO full_stack_user;`;
 
 ## Get Started
 
 1. Run `npm install` to install all packages required by this project.
-2. Run `npm run build` to build the project.
-3. Run `npm run start` to start the project.
+2. Run `db-migrate up` to run migration.
+3. Run `npm run build` to build the project.
+4. Run `npm run start` to start the project.
 
 ## Port
 
