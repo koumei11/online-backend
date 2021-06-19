@@ -2,16 +2,24 @@
 
 This is an online store API. You can use this API to manipulate user, product and order.
 
+## Set Up Database
+
+1. Install PostgreSQL to your machine.
+2. Get into the psql terminal using `psql postgres` command.
+3. After you get into the terminal, create a user below.
+`CREATE USER full_stack_user WITH PASSWORD 'password123';`
+4. Create a database.
+`CREATE DATABASE online_store_dev;`
+5. Assign permission to the newly created user, full_stack_user.
+`GRANT ALL PRIVILEGES ON DATABASE online_store_dev TO full_stack_user;`;
+
+Run `db-migrate up`.
+
 ## Get Started
 
 1. Run `npm install` to install all packages required by this project.
 2. Run `npm run build` to build the project.
 3. Run `npm run start` to start the project.
-
-## Set Up Database
-
-Run `db-migrate up` to set up the database.
-This commands creates online_store_dev database and neccessary tables of this project.
 
 ## Port
 
